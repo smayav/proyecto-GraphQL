@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
 import { conectarBD } from "./db/db";
-import { UserModel } from "./models/user";
-import { ProjectModel } from "./models/project";
-import { ObjectiveModel } from "./models/objective";
-import { InscriptionModel } from "./models/inscription";
-import { AdvanceModel } from "./models/advance";
-import { Enum_EstadoInscripcion, Enum_EstadoProyecto, Enum_EstadoUsuario, Enum_Rol, Enum_TipoObjetivo, Enum_FaseProyecto } from "./models/enums";
-import { ObservationModel } from './models/observation';
+import { UserModel } from "./models/user/user.js";
+import { ProjectModel } from "./models/project/project.js";
+import { ObjectiveModel } from "./models/objective/objective.js";
+import { InscriptionModel } from "./models/inscription/inscription.js";
+import { AdvanceModel } from "./models/advance/advance.js";
+import { Enum_EstadoInscripcion, Enum_EstadoProyecto, Enum_EstadoUsuario, Enum_Rol, Enum_TipoObjetivo, Enum_FaseProyecto } from "./models/enums/enums.js";
+import { ObservationModel } from './models/observation/observation.js';
 
 /** Permite usar variables de entorno, se definen en el archivo .env */
 dotenv.config();

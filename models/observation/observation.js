@@ -1,16 +1,11 @@
-import { Schema, model } from "mongoose";
-import { AdvanceModel } from "./advance";
-import { UserModel } from "./user";
+import mongoose from "mongoose";
+import { AdvanceModel } from "../advance/advance.js";
+import { UserModel } from "../user/user.js";
 
-interface Observation {
-    fechaObservacion: Date;
-    observacionesLider: string;
-    avance: Schema.Types.ObjectId;
-    creadoPor: Schema.Types.ObjectId;
-}
+const { Schema, model } = mongoose;
 
 //definir el esquema:
-const observationSchema = new Schema <Observation>({
+const observationSchema = new Schema({
     fechaObservacion: {
         type: Date,
         required: true,

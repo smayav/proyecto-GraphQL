@@ -1,18 +1,11 @@
-import { Schema, model } from "mongoose";
-import { Enum_EstadoInscripcion } from "./enums";
-import { ProjectModel } from "./project";
-import { UserModel } from "./user";
+import mongoose from "mongoose";
+import { ProjectModel } from "../project/project.js";
+import { UserModel } from "../user/user.js";
 
-interface Inscription {
-    fecha_ingreso: Date;
-    fecha_engreso: Date;
-    estadoInscripcion: Enum_EstadoInscripcion;
-    proyecto: Schema.Types.ObjectId;
-    estudianteInscrito: Schema.Types.ObjectId;
-}
+const { Schema, model } = mongoose;
 
 //definir el esquema:
-const inscriptionSchema = new Schema <Inscription>({
+const inscriptionSchema = new Schema ({
     fecha_ingreso: {
         type: Date,
         required: true,
@@ -23,8 +16,8 @@ const inscriptionSchema = new Schema <Inscription>({
     },
     estadoInscripcion: {
         type: String,
-        enum: Enum_EstadoInscripcion,
-        default: Enum_EstadoInscripcion.PENDIENTE // esto lo adioné dado que puse estado inscripc. pendiente
+        enum: ['ACEPTADA', 'RECHAZADA', 'PENDIENTE' ],
+        default: 'PENDIENTE', // esto lo adioné dado que puse estado inscripc. pendiente
     },
     proyecto: {
         type: Schema.Types.ObjectId,

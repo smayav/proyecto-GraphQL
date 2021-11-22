@@ -1,7 +1,7 @@
-import { UserModel } from "../models/user";
-import { ProjectModel } from "../models/project";
+import { UserModel } from "./user.js";
 
-const resolvers = {
+
+const resolversUser = {
     Query:{
         Usuarios: async (parent, args) =>{
             const Usuarios = await UserModel.find();
@@ -9,13 +9,7 @@ const resolvers = {
         return Usuarios;
         },
 
-        Proyectos: 
-
-        async (parent, args) =>{
-            const Proyectos = await ProjectModel.find();
-
-        return Proyectos;
-        },
+        
     },
 
     Mutation: {
@@ -56,24 +50,11 @@ const resolvers = {
             
         },
 
-        crearProyecto: async(parent, args) => {
-            const proyectoCreado = await ProjectModel.create({
-                nombre: args.nombre,
-                presupuesto: args.presupuesto,
-                fechaInicio: args.fechaInicio,
-                fechaFin: args.fechaFin,
-                estado: args.estado,
-                fase: args.fase,
-                lider: args.lider,
-                objetivos: args.objetivos,
-            })
-
-            return proyectoCreado;
-        }
+        
     },
 
     
 
 };
 
-export {resolvers};
+export {resolversUser};
